@@ -11,28 +11,41 @@ public class Lista {
 		lista = new ArrayList<Item>();
 	}
 	
+	public Lista(ArrayList<Item> lista){
+		this.lista = lista;
+	}
+	
 	public ArrayList<Item> getLista(){
 		return lista;
 	}
 	
 	/*Agrega un objeto al inventario*/
-	public boolean agregarItem(Item objeto){
+	public boolean addItem(Item item){
 		/*
 		if(!estaObjeto(objeto.getId()))
 			return inventarioHabitacion.add(objeto);
 		else
 			return false;
 		*/
-		if(!lista.contains(objeto))
-			return lista.add(objeto);
+		if(!lista.contains(item))
+			return lista.add(item);
 		else 
 			return false;
 	}
 	
+	/*
+	public boolean agregaObjeto(Item item){
+		
+		if(!inventarioPlayer.contains(item))
+			return inventarioPlayer.add(item);
+		else
+			return false;
+		
+	}
+*/		
 	
 	
-	
-	private Item obtenerItem(String id){
+	public Item obtenerItem(String id){
 		
 		boolean encontrado = false;
 		Iterator<Item> listaObjetos = lista.iterator();
@@ -48,6 +61,25 @@ public class Lista {
 		else
 			return null;
 	}
+	
+	/*
+	public Item obtenerObjeto(String id){
+		
+		boolean encontrado = false;
+		Iterator<Item> lista = inventarioPlayer.iterator();
+		Item item = null;
+
+		while (!encontrado && lista.hasNext()) {
+			item = lista.next();
+			encontrado = item.getId().equals(id);
+		}
+		
+		if(encontrado)
+			return item;
+		else
+			return null;
+	}
+*/
 
 	public boolean estaItem(String id){
 		return (obtenerItem(id)!= null);

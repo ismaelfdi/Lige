@@ -1,7 +1,6 @@
 package lige.grupo03.pr2.logica;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+//import java.util.ArrayList;
 
 /**
 Clase que representa una habitación indicando una descripción y si es una salida.
@@ -14,14 +13,14 @@ public class Room {
 	/*Indica si es una habitacion de salida */
 	private boolean salida;
 	/*ArrayList conteniendo el inventario de una habitacion*/
-	private ArrayList<Item> inventarioHabitacion;
+	private Lista inventarioHabitacion;
 	/**
 	Constructor por defecto 
 	*/
 	public Room(){
 		this.descripcion = null;
 		this.salida = false;
-		this.inventarioHabitacion = new ArrayList<Item>();
+		this.inventarioHabitacion = new Lista();
 	};
 	
 	/**
@@ -29,7 +28,7 @@ public class Room {
 	@param descripcion: String con la descripcion de la habitación.
 	@param salida: TRUE o FALSE segun sea el caso.
 	*/
-	public Room(String descripcion, boolean salida, ArrayList<Item> inventarioHabitacion){
+	public Room(String descripcion, boolean salida, Lista inventarioHabitacion){
 		this.descripcion = descripcion;
 		this.salida = salida;
 		this.inventarioHabitacion = inventarioHabitacion;
@@ -51,28 +50,27 @@ public class Room {
 		return salida;
 	}
 	
-	public ArrayList<Item> getInventarioHabitacion(){
+	public Lista getInventarioHabitacion(){
 		return inventarioHabitacion;
 	}
 	
 
 	
 	/*Agrega un objeto al inventario*/
-	public boolean agregarItem(Item objeto){
+	public boolean agregarItem(Item item){
+		
+		return inventarioHabitacion.addItem(item);
 		/*
-		if(!estaObjeto(objeto.getId()))
-			return inventarioHabitacion.add(objeto);
-		else
-			return false;
-		*/
 		if(!inventarioHabitacion.contains(objeto))
 			return inventarioHabitacion.add(objeto);
 		else 
 			return false;
+		*/
 	}
 
-	private Item obtenerObjeto(String id){
-		
+	public Item obtenerObjeto(String id){
+		return inventarioHabitacion.obtenerItem(id);
+		/*
 		boolean encontrado = false;
 		Iterator<Item> lista = inventarioHabitacion.iterator();
 		Item item = null;
@@ -86,6 +84,7 @@ public class Room {
 			return item;
 		else
 			return null;
+		*/
 	}
 
 	public boolean estaObjeto(String id){
@@ -101,7 +100,7 @@ public class Room {
 		return encontrado;		
 		*/
 		
-		return (obtenerObjeto(id)!= null);
+		return inventarioHabitacion.estaItem(id);
 	}
 	public Item cogerObjeto(String id){
 		/*
@@ -116,13 +115,18 @@ public class Room {
 		}
 		return item;
 		*/
-		
+		/*
 		Item item = obtenerObjeto(id);
 		inventarioHabitacion.remove(item);
 		return item;
+		*/
+		return inventarioHabitacion.cogerObjeto(id);
 	}
 	
 	public String mostrarListaHabitacion(){
+		
+		return inventarioHabitacion.showItems();
+		/*
 		String cadenaLista = "";
 		Iterator<Item> lista = inventarioHabitacion.iterator();
 		
@@ -134,9 +138,20 @@ public class Room {
 		
 		
 		return cadenaLista;
+		*/
 	}
 	
 	public String mostrarInventario(){
+		
+		String cadena = inventarioHabitacion.showItems();
+		
+		if(!cadena.equals(""))
+			cadena = "\nLa habitación contiene los siguientes objetos:\n" + cadena;
+		else
+			cadena = "\nLa habitación está vacía.";
+		
+		return cadena;
+		/*
 		String mensaje = descripcion;
 		
 		if(!inventarioHabitacion.isEmpty())
@@ -147,6 +162,7 @@ public class Room {
 		
 		
 		return mensaje;
+		*/
 	}
 
 	

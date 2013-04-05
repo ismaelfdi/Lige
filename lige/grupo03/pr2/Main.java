@@ -1,12 +1,11 @@
 package lige.grupo03.pr2;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 import lige.grupo03.pr2.logica.Comida;
 import lige.grupo03.pr2.logica.Door;
 import lige.grupo03.pr2.logica.Game;
-import lige.grupo03.pr2.logica.Item;
+import lige.grupo03.pr2.logica.Lista;
 import lige.grupo03.pr2.logica.Llave;
 import lige.grupo03.pr2.logica.Map;
 import lige.grupo03.pr2.logica.ObjetoValor;
@@ -14,18 +13,18 @@ import lige.grupo03.pr2.logica.Room;
 
 public class Main {
 	
-	private static ArrayList<Item> crearLista(){
+	private static Lista crearLista(){
 		
-		ArrayList<Item> lista = new ArrayList<Item>();
+		Lista lista = new Lista();
 		
-		lista.add(new Llave("key0", "This key opens the door 0"));
-		lista.add(new Llave("key1", "This key opens the door 1"));
-		lista.add(new Llave("key2", "This key opens the door 2"));
-		lista.add(new Llave("key3", "This key opens the door 3"));
-		lista.add(new Llave("key4", "This key opens the door 4"));
-		lista.add(new Llave("key5", "This key opens the door 5"));
-		lista.add(new Comida("food0", "Comida", 40, 5));
-		lista.add(new ObjetoValor("Honor1", "Gold coin", 200));
+		lista.addItem(new Llave("key0", "This key opens the door 0"));
+		lista.addItem(new Llave("key1", "This key opens the door 1"));
+		lista.addItem(new Llave("key2", "This key opens the door 2"));
+		lista.addItem(new Llave("key3", "This key opens the door 3"));
+		lista.addItem(new Llave("key4", "This key opens the door 4"));
+		lista.addItem(new Llave("key5", "This key opens the door 5"));
+		lista.addItem(new Comida("food0", "Comida", 40, 5));
+		lista.addItem(new ObjetoValor("Honor1", "Gold coin", 200));
 		
 		return lista;
 	}
@@ -39,7 +38,7 @@ public class Main {
 		Room[] habitaciones = new Room[n];
 		boolean salida;
 		String descripcion;
-		ArrayList<Item> lista;
+		Lista lista;
 		
 		lista = crearLista();
 		

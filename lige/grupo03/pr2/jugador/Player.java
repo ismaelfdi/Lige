@@ -3,10 +3,8 @@
  */
 package lige.grupo03.pr2.jugador;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import lige.grupo03.pr2.logica.Item;
+import lige.grupo03.pr2.logica.Lista;
 
 /**
  * @author IsmaelLeonidas
@@ -16,12 +14,12 @@ public class Player {
 	
 	private int puntuacion;
 	private int nivelVida;
-	private ArrayList<Item> inventarioPlayer;
+	private Lista inventarioPlayer;
 	
 	public Player(){
 		this.puntuacion = 0;
 		this.nivelVida = 100;
-		this.inventarioPlayer = new ArrayList<Item>();
+		this.inventarioPlayer = new Lista();
 	}
 	
 	public void consumeNivelVida(){
@@ -34,11 +32,13 @@ public class Player {
 	
 	public boolean agregaObjeto(Item item){
 		
+		return inventarioPlayer.addItem(item);
+		/*
 		if(!inventarioPlayer.contains(item))
 			return inventarioPlayer.add(item);
 		else
 			return false;
-		
+		*/
 	}
 	
 	public boolean tieneNivelVida(){
@@ -52,6 +52,9 @@ public class Player {
 
 	public Item obtenerObjeto(String id){
 		
+		return inventarioPlayer.obtenerItem(id);
+	}
+	/*
 		boolean encontrado = false;
 		Iterator<Item> lista = inventarioPlayer.iterator();
 		Item item = null;
@@ -66,7 +69,7 @@ public class Player {
 		else
 			return null;
 	}
-	
+	*/
 	public String mostrarPuntuacion(){
 		return "VIDA = " + nivelVida + ", PUNTUACIÓN =" + puntuacion;
 	}
@@ -90,6 +93,15 @@ public class Player {
 	
 	public String mostrarInventario(){
 		
+		String cadena = inventarioPlayer.showItems();
+		
+		if(!cadena.equals(""))
+			cadena = "Mis objetos son:\n" + cadena;
+		else
+			cadena = "Eres pobre, no tienes ningún objeto (aun).";
+		
+		return cadena;
+		/*
 		String mensaje = "";
 
 		if(!inventarioPlayer.isEmpty()){
@@ -105,6 +117,7 @@ public class Player {
 			mensaje += "Eres pobre, no tienes ningún objeto (aun).";
 			
 		return mensaje;
+		*/
 	}
 	
 	
