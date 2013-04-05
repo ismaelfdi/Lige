@@ -22,13 +22,13 @@ public class Parser {
 		cadena = cadena.toUpperCase();
 		
 		if(cadena.equals(VerbCommands.AYUDA.toString())){
-			return new ComandoAyuda(VerbCommands.AYUDA);
+			return new ComandoAyuda();
 		}else if(cadena.equals(VerbCommands.SALIR.toString())){
-			return new ComandoSalir(juego, VerbCommands.SALIR);
+			return new ComandoSalir(juego);
 		}else if(cadena.equals(VerbCommands.EXAMINAR.toString())){
-			return new ComandoExaminar(juego, VerbCommands.EXAMINAR);
+			return new ComandoExaminar(juego);
 		}else if(cadena.equals(VerbCommands.MIRAR.toString())){
-			return new ComandoMirar(juego, VerbCommands.MIRAR);
+			return new ComandoMirar(juego);
 		}else{
 			String[] trozos = cadena.split(" ");			
 			
@@ -38,22 +38,22 @@ public class Parser {
 					
 					switch (dir) {
 					case "NORTE" :
-						return new ComandoIr(juego, VerbCommands.IR, Directions.NORTE);
+						return new ComandoIr(juego, Directions.NORTE);
 					case "SUR" :
-						return new ComandoIr(juego, VerbCommands.IR, Directions.SUR);
+						return new ComandoIr(juego, Directions.SUR);
 					case "ESTE" :
-						return new ComandoIr(juego, VerbCommands.IR, Directions.ESTE);
+						return new ComandoIr(juego, Directions.ESTE);
 					case "OESTE" :
-						return new ComandoIr(juego, VerbCommands.IR, Directions.OESTE);
+						return new ComandoIr(juego, Directions.OESTE);
 					default:
-						return new ComandoIr(juego, VerbCommands.DESCONOCIDO, Directions.DESCONOCIDO);
+						return new Comando();
 					}		
 				}else if(trozos[0].equals(VerbCommands.MIRAR.toString())){
-					return new ComandoMirar(juego, VerbCommands.MIRAR, trozos[1].toLowerCase());
+					return new ComandoMirar(juego, trozos[1].toLowerCase());
 				}else if(trozos[0].equals(VerbCommands.COGER.toString())){
-					return new ComandoCoger(juego, VerbCommands.COGER, trozos[1].toLowerCase());
+					return new ComandoCoger(juego, trozos[1].toLowerCase());
 				}else if(trozos[0].equals(VerbCommands.USAR.toString())){
-					return new ComandoUsar(juego, VerbCommands.USAR, trozos[1].toLowerCase());
+					return new ComandoUsar(juego, trozos[1].toLowerCase());
 				}
 			}		
 		}

@@ -14,8 +14,8 @@ public class ComandoCoger extends Comando{
 	private String id;
 	private Game juego;
 
-	public ComandoCoger(Game juego, VerbCommands verbo, String id){
-		super(verbo);
+	public ComandoCoger(Game juego, String id){
+		super(VerbCommands.COGER);
 		this.id = id;
 		this.juego = juego;
 	}

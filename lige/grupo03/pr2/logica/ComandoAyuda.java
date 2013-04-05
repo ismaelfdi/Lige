@@ -12,8 +12,8 @@ import lige.grupo03.pr2.entradaSalida.UIConsola;
  */
 public class ComandoAyuda extends Comando{
 	
-	public ComandoAyuda(VerbCommands verbo){
-		super(verbo);
+	public ComandoAyuda(){
+		super(VerbCommands.AYUDA);
 	}
 	
 	public VerbCommands getVerbo(){

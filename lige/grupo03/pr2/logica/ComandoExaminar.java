@@ -18,8 +18,8 @@ public class ComandoExaminar extends Comando{
 		super(verbo);
 	}	
 	*/
-	public ComandoExaminar(Game juego, VerbCommands verbo){
-		super(verbo);
+	public ComandoExaminar(Game juego){
+		super(VerbCommands.EXAMINAR);
 		this.juego = juego;
 	}
 	

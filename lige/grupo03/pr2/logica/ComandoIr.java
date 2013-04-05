@@ -19,8 +19,8 @@ public class ComandoIr extends Comando{
 		this.direccion = direccion;
 	}
 	*/
-	public ComandoIr(Game juego, VerbCommands verbo, Directions direccion){
-		super(verbo);
+	public ComandoIr(Game juego, Directions direccion){
+		super(VerbCommands.IR);
 		this.direccion = direccion;
 		this.juego = juego;
 	}

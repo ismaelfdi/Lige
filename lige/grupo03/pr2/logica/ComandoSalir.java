@@ -14,8 +14,8 @@ public class ComandoSalir extends Comando{
 	
 	private Game juego;
 	
-	public ComandoSalir(Game juego, VerbCommands verbo){
-		super(verbo);
+	public ComandoSalir(Game juego){
+		super(VerbCommands.SALIR);
 		this.juego = juego;
 	}
 	

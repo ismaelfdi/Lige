@@ -1,5 +1,7 @@
 package lige.grupo03.pr2.logica;
 
+import lige.grupo03.pr2.jugador.Player;
+
 public class Llave extends Persistente{
 	
 	/*Atributo puerta, indica la puerta que abre esta llave*/
@@ -11,7 +13,7 @@ public class Llave extends Persistente{
 	}
 
 	@Override
-	public void use(String who, String where) {
+	public void use(Player who, Room where) {
 		// TODO Auto-generated method stub
 		
 	}

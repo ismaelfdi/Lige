@@ -44,8 +44,6 @@ public class Player {
 	public boolean tieneNivelVida(){
 		return !(nivelVida == 0);
 	}
-	
-	
 
 	
 	public boolean tieneEnInventario(String id){

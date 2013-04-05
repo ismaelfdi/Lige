@@ -15,14 +15,14 @@ public class ComandoMirar extends Comando{
 	private String id;
 	private Game juego;
 	
-	public ComandoMirar(Game juego, VerbCommands verbo){
-		super(verbo);
+	public ComandoMirar(Game juego){
+		super(VerbCommands.MIRAR);
 		this.id = "";
 		this.juego = juego;
 	}
 	
-	public ComandoMirar(Game juego, VerbCommands verbo, String id){
-		super(verbo);
+	public ComandoMirar(Game juego, String id){
+		super(VerbCommands.MIRAR);
 		this.id = id;
 		this.juego = juego;
 	}

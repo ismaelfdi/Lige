@@ -15,8 +15,8 @@ public class ComandoUsar extends Comando{
 	private String id;
 	private Game juego;
 	
-	public ComandoUsar(Game juego, VerbCommands verbo, String id){
-		super(verbo);
+	public ComandoUsar(Game juego, String id){
+		super(VerbCommands.USAR);
 		this.id = id;
 		this.juego = juego;
 	}
