@@ -4,7 +4,6 @@
 package lige.grupo03.pr2.logica;
 
 import lige.grupo03.pr2.VerbCommands;
-import lige.grupo03.pr2.entradaSalida.UIConsola;
 
 /**
  * @author IsmaelLeonidas
@@ -36,21 +35,7 @@ public class ComandoUsar extends Comando{
 
 	@Override
 	public void ejecutar() {
-		/*
-		Player jugador = juego.getJugador();
-		*/
-		if(juego.jugadorTieneEnInventario(id)){
-			
-			Item item = juego.obtenerObjetoJuegador(id);
-			if(item.canBeUsed()){
-				UIConsola.printText("Puede ser usado");
-			}else{
-				UIConsola.printText("Error, no puede ser usado");
-			}
-			
-		}else
-			UIConsola.showError("Alguien robo tu " + id + ".");
-		
+		juego.usarObjeto(id);
 	}
 
 }

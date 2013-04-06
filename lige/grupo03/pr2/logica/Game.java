@@ -71,10 +71,41 @@ public class Game {
 	public boolean habitacionActualEstaObjeto(String id){
 		return habitacionActual.estaObjeto(id);
 	}
-	
-	public boolean jugadorTieneEnInventario(String id){
-		return jugador.tieneEnInventario(id);
+
+	public void usarObjeto(String id){
+		if(jugador.tieneEnInventario(id)){
+			Item item = jugador.obtenerObjeto(id);
+			
+			if(item.use(jugador, habitacionActual)){
+				UIConsola.printText("Algo ha cambiado...");
+				if(!item.canBeUsed()){
+					jugador.borrarItem(id);
+					UIConsola.printText("\n" + item.getId() + " ha sido borrado de tu inventario.");
+				}
+			}
+			else
+				UIConsola.printText("Como no fuiste a clase de LIGe la semana pasada no " +
+									"sabes cómo usar los objetos de forma adecuada...");
+			
+		}else
+			UIConsola.showError("Alguien robo tu " + id + ".");
 	}
+	
+	
+	public void cogerId(String id){
+		if(habitacionActual.estaObjeto(id)){
+			if(!jugador.tieneEnInventario(id)){
+				Item item = habitacionActual.cogerObjeto(id);
+				jugador.agregaObjeto(item);
+			}else{
+				UIConsola.showError("Ya tienes otro " + id + " en tu inventario.");
+			}
+		}else{
+			UIConsola.showError("El objeto " + id + " no está en esta habitación.");
+		}		
+	}
+	
+	
 	
 	public Item cogerObjetoHabitacion(String id){
 		return habitacionActual.cogerObjeto(id);
@@ -84,7 +115,7 @@ public class Game {
 		return jugador.agregaObjeto(item);
 	}
 	
-	public Item obtenerObjetoJuegador(String id){
+	public Item obtenerObjetoJugador(String id){
 		return jugador.obtenerObjeto(id);
 	}
 	
@@ -99,7 +130,7 @@ public class Game {
 
 		if((puerta != null) && puerta.isOpenDoor()){
 			habitacionActual = puerta.nextRoom(habitacionActual);
-			jugador.consumeNivelVida();
+			jugador.restarVida();
 			mensaje += habitacionActual.mostrarInventario() + jugador.mostrarPuntuacion();
 			UIConsola.printText(mensaje);
 		}else if((puerta != null) && !puerta.isOpenDoor()){
@@ -109,6 +140,8 @@ public class Game {
 		}
 		
 	}
+
+
 	
 	/**
 	Metodo que da comienzo al juego
@@ -120,35 +153,14 @@ public class Game {
 		
 		UIConsola.printText(habitacionActual.mostrarInventario());
 		UIConsola.printText(jugador.mostrarPuntuacion());
-		while(!(comando.getVerbo().equals(VerbCommands.SALIR) || habitacionActual.getSalida() || !jugador.tieneNivelVida())){
-			
+		while(!(comando.getVerbo().equals(VerbCommands.SALIR) || habitacionActual.getSalida() || !jugador.tieneNivelVida())){	
 			entrada = UIConsola.askComand();
 			comando = Parser.parsear(this, entrada);
-	
 			comando.ejecutar();
 		}
 				
 		if(habitacionActual.getSalida())
-			System.out.println("Ha ganado!!!");
+			System.out.println("\nHa ganado!!!");
 	}
-	
-	/*
-	
-	public static void main(String[] args) {
-		
-		Room hab = new Room("Habitacion 0:\nEs tu última oportunidad para terminar la práctica a tiempo.\n", true);
-		
-		System.out.println(hab.getDescripcion());
-		
-		
-		new Game(new Map(), hab).comenzarJuego();
-		
-	}
-	*/
-	
-	
-	
-	
-	
 
 }

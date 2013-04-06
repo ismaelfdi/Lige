@@ -33,18 +33,6 @@ public class Lista {
 			return false;
 	}
 	
-	/*
-	public boolean agregaObjeto(Item item){
-		
-		if(!inventarioPlayer.contains(item))
-			return inventarioPlayer.add(item);
-		else
-			return false;
-		
-	}
-*/		
-	
-	
 	public Item obtenerItem(String id){
 		
 		boolean encontrado = false;
@@ -61,28 +49,14 @@ public class Lista {
 		else
 			return null;
 	}
-	
-	/*
-	public Item obtenerObjeto(String id){
-		
-		boolean encontrado = false;
-		Iterator<Item> lista = inventarioPlayer.iterator();
-		Item item = null;
-
-		while (!encontrado && lista.hasNext()) {
-			item = lista.next();
-			encontrado = item.getId().equals(id);
-		}
-		
-		if(encontrado)
-			return item;
-		else
-			return null;
-	}
-*/
 
 	public boolean estaItem(String id){
 		return (obtenerItem(id)!= null);
+	}
+	
+	public void borrarItem(String id){
+		Item item = obtenerItem(id);
+		lista.remove(item);		
 	}
 	
 	public Item cogerObjeto(String id){

@@ -32,7 +32,7 @@ public abstract class Item {
 		return "--item[" + id + "]=" + descripcion;
 	}
 	
-	public abstract void use(Player who, Room where);
+	public abstract boolean use(Player who, Room where);
 	
 	public abstract boolean canBeUsed();
 	

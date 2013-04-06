@@ -9,7 +9,7 @@ import lige.grupo03.pr2.jugador.Player;
  * @author IsmaelLeonidas
  *
  */
-public class Consumible extends Item{
+public abstract class Consumible extends Item{
 	
 	private int puntos;
 	
@@ -22,17 +22,21 @@ public class Consumible extends Item{
 	public int getPuntos(){
 		return puntos;
 	}
-
+	
+	public void setPuntos(int puntos){
+		this.puntos = puntos;
+	}
+	
+	public String mostrar(){	
+		return "--item[" + super.getId() + "]=This " + super.getDescripcion() + "value is " + puntos;
+	}
 
 	@Override
 	public boolean canBeUsed() {
-		return false;
+		return (puntos > 0);
 	}
 
 	@Override
-	public void use(Player who, Room where) {
-		// TODO Auto-generated method stub
-		
-	}
+	public abstract boolean use(Player who, Room where);
 
 }

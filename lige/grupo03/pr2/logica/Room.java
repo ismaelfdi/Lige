@@ -1,5 +1,7 @@
 package lige.grupo03.pr2.logica;
 
+import java.util.ArrayList;
+
 //import java.util.ArrayList;
 
 /**
@@ -28,9 +30,20 @@ public class Room {
 	@param descripcion: String con la descripcion de la habitación.
 	@param salida: TRUE o FALSE segun sea el caso.
 	*/
+	public Room(String descripcion, boolean salida){
+		this.descripcion = descripcion;
+		this.salida = salida;
+		this.inventarioHabitacion = new Lista();
+	}
+
 	public Room(String descripcion, boolean salida, Lista inventarioHabitacion){
 		this.descripcion = descripcion;
 		this.salida = salida;
+		this.inventarioHabitacion = inventarioHabitacion;
+	}
+	
+	
+	public void setInventarioHabitacion(Lista inventarioHabitacion){
 		this.inventarioHabitacion = inventarioHabitacion;
 	}
 
@@ -57,140 +70,40 @@ public class Room {
 
 	
 	/*Agrega un objeto al inventario*/
-	public boolean agregarItem(Item item){
-		
+	public boolean agregarItem(Item item){		
 		return inventarioHabitacion.addItem(item);
-		/*
-		if(!inventarioHabitacion.contains(objeto))
-			return inventarioHabitacion.add(objeto);
-		else 
-			return false;
-		*/
 	}
 
 	public Item obtenerObjeto(String id){
 		return inventarioHabitacion.obtenerItem(id);
-		/*
-		boolean encontrado = false;
-		Iterator<Item> lista = inventarioHabitacion.iterator();
-		Item item = null;
-
-		while (!encontrado && lista.hasNext()) {
-			item = lista.next();
-			encontrado = item.getId().equals(id);
-		}
-		
-		if(encontrado)
-			return item;
-		else
-			return null;
-		*/
 	}
 
 	public boolean estaObjeto(String id){
-		/*
-		boolean encontrado = false;
-		Iterator<Item> lista = inventarioHabitacion.iterator();
-		Item item;
-		
-		while (!encontrado && lista.hasNext()) {
-			item = lista.next();
-			encontrado = item.getId().equals(id);
-		}
-		return encontrado;		
-		*/
-		
 		return inventarioHabitacion.estaItem(id);
 	}
+	
 	public Item cogerObjeto(String id){
-		/*
-		Iterator<Item> lista = inventarioHabitacion.iterator();
-		boolean removido = false;
-		Item item = null;
-		
-		while (!removido && lista.hasNext()) {
-			item = lista.next();
-			if(item.getId().equals(id.toLowerCase()))
-				removido = inventarioHabitacion.remove(item);
-		}
-		return item;
-		*/
-		/*
-		Item item = obtenerObjeto(id);
-		inventarioHabitacion.remove(item);
-		return item;
-		*/
 		return inventarioHabitacion.cogerObjeto(id);
 	}
-	
+	/*
 	public String mostrarListaHabitacion(){
-		
 		return inventarioHabitacion.showItems();
-		/*
-		String cadenaLista = "";
-		Iterator<Item> lista = inventarioHabitacion.iterator();
-		
-		Item item;
-		while (lista.hasNext()) {
-			item = lista.next();
-			cadenaLista += item.mostrar() + "\n";
-		}		
-		
-		
-		return cadenaLista;
-		*/
 	}
-	
+	*/
 	public String mostrarInventario(){
 		
 		String cadena = inventarioHabitacion.showItems();
 		
 		if(!cadena.equals(""))
-			cadena = "\nLa habitación contiene los siguientes objetos:\n" + cadena;
+			cadena = descripcion + "\nLa habitación contiene los siguientes objetos:\n" + cadena;
 		else
-			cadena = "\nLa habitación está vacía.";
+			cadena = "\nLa habitación está vacía.\n";
 		
 		return cadena;
-		/*
-		String mensaje = descripcion;
-		
-		if(!inventarioHabitacion.isEmpty())
-			mensaje += "\nLa habitación contiene los siguientes objetos:\n" 
-					 + mostrarListaHabitacion();
-		else
-			mensaje += "\nLa habitación está vacía.";
-		
-		
-		return mensaje;
-		*/
 	}
 
-	
-	/*
-	public Item cogerItem(String id){
-		
-		if(!estaEnInventario(item.getId())){
-			return inventarioPlayer.add(item);
-		}else{
-			return null;
-		}			
+	public void setInventarioHabitacion(ArrayList<Item> lista) {
+		// TODO Auto-generated method stub
+		this.inventarioHabitacion = new Lista(lista);
 	}
-	
-	public Item cogerItem(String id){
-		
-		boolean encontrado = false;
-		Iterator<Item> lista = inventarioHabitacion.iterator();
-		Item item;
-		
-		while (!encontrado && lista.hasNext()) {
-			item = lista.next();
-			encontrado = item.getId() == id;
-		}
-		if (encontrado)
-			return item;
-		else 
-			return null;
-		
-	}	
-*/
 }

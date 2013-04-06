@@ -1,5 +1,7 @@
 package lige.grupo03.pr2.logica;
 
+import lige.grupo03.pr2.jugador.Player;
+
 public class Comida extends Consumible{
 	
 	private int numeroVeces;
@@ -11,6 +13,21 @@ public class Comida extends Consumible{
 	
 	public int getNumeroveces(){
 		return numeroVeces;
+	}
+	
+	public String mostrar(){	
+		return "--item[" + super.getId() + "]=This " + super.getDescripcion() + " value is " + super.getPuntos() + "//" + numeroVeces;
+	}
+
+	@Override
+	public boolean use(Player who, Room where) {
+		
+		if(canBeUsed()){
+			who.sumarVida(super.getPuntos());
+			numeroVeces--;
+			return true;
+		}else
+			return false;
 	}
 
 }

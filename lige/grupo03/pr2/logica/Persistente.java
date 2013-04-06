@@ -16,9 +16,13 @@ public abstract class Persistente extends Item{
 	}
 
 	@Override
-	public abstract void use(Player who, Room where);
-
+	public boolean canBeUsed(){
+		return true;
+	}
+	
 	@Override
-	public abstract boolean canBeUsed();
+	public abstract boolean use(Player who, Room where);
+
+
 
 }
