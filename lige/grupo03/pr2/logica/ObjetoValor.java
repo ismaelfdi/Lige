@@ -23,6 +23,11 @@ public class ObjetoValor extends Consumible{
 		}else
 			return false;
 	}
+
+	@Override
+	public ObjetoValor clone() {
+		return new ObjetoValor(this.getId(), this.getDescripcion(), this.getPuntos());
+	}
 	
 	
 	

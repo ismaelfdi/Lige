@@ -81,6 +81,7 @@ public class Game {
 				if(!item.canBeUsed()){
 					jugador.borrarItem(id);
 					UIConsola.printText("\n" + item.getId() + " ha sido borrado de tu inventario.");
+					UIConsola.printText(jugador.mostrarPuntuacion());
 				}
 			}
 			else

@@ -17,6 +17,10 @@ public class Llave extends Persistente{
 		super(id, descripcion);
 		this.puerta = puerta;
 	}
+	
+	public Llave clone(){
+		return new Llave(this.getId(),this.getDescripcion(),this.puerta);
+	}
 
 	@Override
 	public boolean use(Player who, Room where) {

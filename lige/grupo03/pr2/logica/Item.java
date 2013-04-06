@@ -32,6 +32,8 @@ public abstract class Item {
 		return "--item[" + id + "]=" + descripcion;
 	}
 	
+	public abstract Item clone();
+	
 	public abstract boolean use(Player who, Room where);
 	
 	public abstract boolean canBeUsed();

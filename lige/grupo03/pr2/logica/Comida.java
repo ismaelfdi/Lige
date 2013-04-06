@@ -30,4 +30,9 @@ public class Comida extends Consumible{
 			return false;
 	}
 
+	@Override
+	public Comida clone() {
+		return new Comida(this.getId(),this.getDescripcion(),this.getPuntos(),this.numeroVeces);
+	}
+
 }

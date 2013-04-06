@@ -92,10 +92,11 @@ public class Main {
 		Date d = new Date();
 		Random generator = new Random(d.getTime());
 		int n = generator.nextInt(5);
-		int m;
+		int m = 0;
 		for(int i = 0; i <= n; i++){
 			m = generator.nextInt(listaObjetos.size());
-			lista.add(listaObjetos.get(m));
+			if(!lista.contains(listaObjetos.get(m)))
+			    lista.add(listaObjetos.get(m).clone());
 		}
 		
 		return lista;
