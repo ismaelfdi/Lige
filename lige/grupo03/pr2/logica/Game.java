@@ -36,10 +36,21 @@ public class Game {
 		this.jugador = new Player();
 	}
 
+	/**
+	 * Muestra el inventario de la habitacion actual
+	 * 
+	 * @return Sin valor de retorno
+	 */
 	public void mostrarInventarioHabitacion(){
 		UIConsola.printText(habitacionActual.mostrarInventario());
 	}
 
+	/**
+	 * Utiliza el objeto con identificador id del inventario del jugador
+	 * 
+	 * @param id String que representa el identificador del Objeto a usar
+	 * @return Sin valor de retorno
+	 */
 	public void usarObjeto(String id){
 		if(jugador.tieneEnInventario(id)){
 			Item item = jugador.obtenerObjeto(id);
@@ -60,7 +71,11 @@ public class Game {
 			UIConsola.showError("Alguien robo tu " + id + ".");
 	}
 	
-	
+	/**
+	 * Metodo que realiza la funcion de coger un id de la habitacion
+	 * @param id String que representa el identificador del Item a coger
+	 * @return Sin valor de retorno
+	 */
 	public void cogerId(String id){
 		if(habitacionActual.estaObjeto(id)){
 			if(!jugador.tieneEnInventario(id)){
@@ -74,16 +89,22 @@ public class Game {
 		}		
 	}
 	
-	public Door devolverPuerta(Directions direccion){
-		return puertas.devolverPuerta(habitacionActual, direccion);
-	}
-
-
+	/**
+	 * Procedimiento especifico cuando se sale del juego
+	 * 
+	 * @return Sin valor de retorno
+	 */
 	public void salir() {
 		UIConsola.printText("GAME OVER!!\nGracias por jugar.\n");
 		UIConsola.printText( jugador.mostrarPuntuacion());	
 	}
 	
+	/**
+	 * Procedimiento especifico cuando el juego recibe el comando mirar
+	 * 
+	 * @param id String que representa el identificado del objeto a mirar
+	 * @return Sin valor de retorno
+	 */
 	public void mirarId(String id) {
 		if(id.equals(""))
 			UIConsola.printText(jugador.mostrarInventario());
@@ -92,6 +113,11 @@ public class Game {
 		
 	}
 
+	/**
+	 * Procedimiento especifico cuando se escribe el comando soltar
+	 * @param id String con el identificador del objeto a soltar
+	 * @return Sin valor de retorno
+	 */
 	public void soltarId(String id) {
 		
 		if(jugador.tieneEnInventario(id)){
@@ -107,6 +133,12 @@ public class Game {
 		
 	}
 	
+	/**
+	 * Procedimiento especifico que indica hacia que habitacion IR
+	 * 
+	 * @param direccion Directions hacia donde ir
+	 * @return Sin valor de retorno
+	 */
 	public void cambiarHabitacion(Directions direccion){
 
 		String mensaje = "...moviéndonos al " + direccion.toString() + "\n";	
@@ -128,7 +160,7 @@ public class Game {
 
 	
 	/**
-	Metodo que da comienzo al juego
+	* Metodo que da comienzo al juego
 	*/
 	public void comenzarJuego(){
 		

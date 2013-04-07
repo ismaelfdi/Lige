@@ -47,19 +47,5 @@ public class UIConsola {
 	public static void showError(String error){
 		System.out.println(error);
 	}
-	
-	/* main: que realizará pruebas sobre la clase creada para comprobar que
-	   todo funciona correctamente.
-	
-	public static void main(String[] args) {
-		
-		UIConsola miConsola = new UIConsola();
-		
-		System.out.println(miConsola.askComand());
-		
-		miConsola.printText("Cadena para su impresion");
-		
-	}
-	*/
 
 }

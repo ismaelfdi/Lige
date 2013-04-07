@@ -8,7 +8,7 @@ import lige.grupo03.pr2.VerbCommandsEN;
 Clase que transforma un String en un objeto de la clase Command, asimismo se
 encarga de generar el mensaje de ayuda. 
 @author Ismael Ventura & Ignacio Lopez
-@version 1.0
+@version 2.0
 */
 
 public class Parser {
@@ -64,8 +64,9 @@ public class Parser {
 	}
 	
 	/**
-	Metodo privado que coloca las direcciones en una sola cadena.
-	@return String conteniendo la cadena con las direcciones.
+	* Metodo privado que coloca las direcciones en una sola cadena.
+	*
+	* @return String conteniendo la cadena con las direcciones.
 	*/
 	private static String direcciones(){
 		String cadena = " {";
@@ -80,8 +81,9 @@ public class Parser {
 	
 	
 	/**
-	Metodo que devuelve cadena con el mensaje de Ayuda.
-	@return String que contiene la ayuda con todos los comandos disponibles.
+	* Metodo que devuelve cadena con el mensaje de Ayuda.
+	*
+	* @return String que contiene la ayuda con todos los comandos disponibles.
 	*/
 	public static String mensajeAyuda(){
 		

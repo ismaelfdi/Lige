@@ -12,9 +12,8 @@ Clase que se ocupa del vector de puertas posibles en una partida.
 */
 public class Map {
 	
-	//vector de puertas posibles
+	/*vector de puertas posibles*/
 	private ArrayList<Door> puertas = new ArrayList<Door>();
-	//private Vector<Door> puertas = new Vector<Door>();
 	
 	/**
 	Metodo que agrega una puerta al vector

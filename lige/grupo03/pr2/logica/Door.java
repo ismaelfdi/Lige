@@ -64,20 +64,27 @@ public class Door {
 		this.openDoor = openDoor;
 	}
 	
+	/**
+	 * Indica si una puerta esta abierta
+	 * 
+	 * @return boolean verdadero o falso segun sea el caso
+	 */
 	public boolean isOpenDoor(){
 		return openDoor;
 	}
 	
-	public void abrirPuerta(){
-		openDoor = true;
-	}
-	
+	/**
+	 * Procedimiento que cierra una puerta
+	 * 
+	 * @return Sin valor de retorno
+	 */
 	public void cerrarPuerta(){
 		openDoor = false;
 	}
 	
 	/** isInRoom: Nos tiene que decir si la puerta pertenece a la habitación pasada por 
 	parámetro y se encuentra en la dirección pasada por parámetro.
+	
 	@param habitacion : Habitacion donde se ubica la puerta, puede ser Origen o Destino.
 	@param dir : Direccion en la cual se encuentra la puerta 
 	@return boolean indicando si la puerta pertenece a la habitacion.
