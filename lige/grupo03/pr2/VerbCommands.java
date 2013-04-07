@@ -5,5 +5,5 @@ Enumerado que guarda los comandos del juego
 @author Ismael Ventura & Ignacio Lopez
 */
 public enum VerbCommands {
-	EXAMINAR,IR,AYUDA,MIRAR,COGER,SALIR,USAR,DESCONOCIDO;
+	EXAMINAR,IR,AYUDA,MIRAR,COGER,SALIR,USAR,SOLTAR,DESCONOCIDO;
 }

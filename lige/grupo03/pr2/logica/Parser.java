@@ -2,6 +2,7 @@ package lige.grupo03.pr2.logica;
 
 import lige.grupo03.pr2.Directions;
 import lige.grupo03.pr2.VerbCommands;
+import lige.grupo03.pr2.VerbCommandsEN;
 
 /**
 Clase que transforma un String en un objeto de la clase Command, asimismo se
@@ -21,19 +22,19 @@ public class Parser {
 		
 		cadena = cadena.toUpperCase();
 		
-		if(cadena.equals(VerbCommands.AYUDA.toString())){
+		if(cadena.equals(VerbCommands.AYUDA.toString()) || cadena.equals(VerbCommandsEN.HELP.toString())){
 			return new ComandoAyuda();
-		}else if(cadena.equals(VerbCommands.SALIR.toString())){
+		}else if(cadena.equals(VerbCommands.SALIR.toString()) || cadena.equals(VerbCommandsEN.EXIT.toString())){
 			return new ComandoSalir(juego);
-		}else if(cadena.equals(VerbCommands.EXAMINAR.toString())){
+		}else if(cadena.equals(VerbCommands.EXAMINAR.toString()) || cadena.equals(VerbCommandsEN.EXAMINE.toString())){
 			return new ComandoExaminar(juego);
-		}else if(cadena.equals(VerbCommands.MIRAR.toString())){
+		}else if(cadena.equals(VerbCommands.MIRAR.toString()) || cadena.equals(VerbCommandsEN.LOOK.toString())){
 			return new ComandoMirar(juego);
 		}else{
 			String[] trozos = cadena.split(" ");			
 			
 			if (trozos.length == 2){
-				if(trozos[0].equals(VerbCommands.IR.toString())){
+				if(trozos[0].equals(VerbCommands.IR.toString()) || trozos[0].equals(VerbCommandsEN.GO.toString())){
 					String dir = trozos[1];
 					
 					switch (dir) {
@@ -48,13 +49,14 @@ public class Parser {
 					default:
 						return new Comando();
 					}		
-				}else if(trozos[0].equals(VerbCommands.MIRAR.toString())){
+				}else if(trozos[0].equals(VerbCommands.MIRAR.toString()) || trozos[0].equals(VerbCommandsEN.LOOK.toString())){
 					return new ComandoMirar(juego, trozos[1].toLowerCase());
-				}else if(trozos[0].equals(VerbCommands.COGER.toString())){
+				}else if(trozos[0].equals(VerbCommands.COGER.toString()) || trozos[0].equals(VerbCommandsEN.CATCH.toString())){
 					return new ComandoCoger(juego, trozos[1].toLowerCase());
-				}else if(trozos[0].equals(VerbCommands.USAR.toString())){
+				}else if(trozos[0].equals(VerbCommands.USAR.toString()) || trozos[0].equals(VerbCommandsEN.USE.toString())){
 					return new ComandoUsar(juego, trozos[1].toLowerCase());
-				}
+				}else if(trozos[0].equals(VerbCommands.SOLTAR.toString()) || trozos[0].equals(VerbCommandsEN.DROP.toString()))
+					return new ComandoSoltar(juego, trozos[1].toLowerCase());
 			}		
 		}
 		

@@ -36,10 +36,7 @@ public class ComandoMirar extends Comando{
 	}
 	
 	public void ejecutar(){
-		if(id.equals(""))
-			UIConsola.printText(juego.mostrarInventarioJugador());
-		else
-			UIConsola.printText(juego.mostrarItemJugador(id));
+		juego.mirarId(id);
 	}
 
 }

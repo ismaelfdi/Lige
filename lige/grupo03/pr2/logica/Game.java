@@ -56,8 +56,8 @@ public class Game {
 		 return jugador.mostrarPuntuacion();
 	}
 	
-	public String mostrarInventarioHabitacion(){
-		return habitacionActual.mostrarInventario();
+	public void mostrarInventarioHabitacion(){
+		UIConsola.printText(habitacionActual.mostrarInventario());
 	}
 	
 	public String mostrarInventarioJugador(){
@@ -123,6 +123,35 @@ public class Game {
 	public Door devolverPuerta(Directions direccion){
 		return puertas.devolverPuerta(habitacionActual, direccion);
 	}
+
+
+	public void salir() {
+		UIConsola.printText("GAME OVER!!\nGracias por jugar.\n");
+		UIConsola.printText( jugador.mostrarPuntuacion());	
+	}
+	
+	public void mirarId(String id) {
+		if(id.equals(""))
+			UIConsola.printText(jugador.mostrarInventario());
+		else
+			UIConsola.printText(jugador.mostrarItem(id));
+		
+	}
+
+	public void soltarId(String id) {
+		
+		if(jugador.tieneEnInventario(id)){
+			if(!habitacionActual.estaObjeto(id)){
+				Item item = jugador.obtenerObjeto(id);
+				jugador.borrarItem(id);
+				habitacionActual.agregarItem(item);
+				
+			}else
+				UIConsola.showError("El objeto " + id + " ya existe en esta habitacion.");	
+		}else
+			UIConsola.showError("No tienes " + id + " en tu inventario.");
+		
+	}
 	
 	public void cambiarHabitacion(Directions direccion){
 
@@ -161,7 +190,9 @@ public class Game {
 		}
 				
 		if(habitacionActual.getSalida())
-			System.out.println("\nHa ganado!!!");
+			UIConsola.printText("\nHa ganado!!!");
 	}
+
+
 
 }

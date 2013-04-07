@@ -4,7 +4,6 @@
 package lige.grupo03.pr2.logica;
 
 import lige.grupo03.pr2.VerbCommands;
-import lige.grupo03.pr2.entradaSalida.UIConsola;
 
 /**
  * @author IsmaelLeonidas
@@ -29,7 +28,7 @@ public class ComandoExaminar extends Comando{
 
 	@Override
 	public void ejecutar() {
-		UIConsola.printText(juego.mostrarInventarioHabitacion());
+		juego.mostrarInventarioHabitacion();
 	}
 
 

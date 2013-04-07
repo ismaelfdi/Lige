@@ -24,8 +24,8 @@ public class ComandoSalir extends Comando{
 	}
 
 	public void ejecutar() {
-		UIConsola.printText("GAME OVER!!\nGracias por jugar.\n");
-		UIConsola.printText(juego.mostrarPuntuacionJugador());
+		
+		juego.salir();
 	}
 
 }

@@ -22,13 +22,13 @@ public class Main {
 	private static Room[] createRooms(int n){
 		
 		Room[] habitaciones = new Room[n];
-		boolean salida;
+		//boolean salida;
 		String descripcion;
 		
 		habitaciones[0] = new Room("Room 0", false);
 		for(int i = 1; i < n-1; i++){
-			int j = new Random().nextInt(2);
-			salida = (j == 0)?false:true;
+			//int j = new Random().nextInt(2);
+			//salida = (j == 0)?false:true;
 			descripcion = "Room " + i;
 			habitaciones[i] = new Room(descripcion, false);
 			//habitaciones.add(new Room(descripcion, salida));
