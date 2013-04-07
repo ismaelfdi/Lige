@@ -30,11 +30,11 @@ public class Main {
 			int j = new Random().nextInt(2);
 			salida = (j == 0)?false:true;
 			descripcion = "Room " + i;
-			habitaciones[i] = new Room(descripcion, salida);
+			habitaciones[i] = new Room(descripcion, false);
 			//habitaciones.add(new Room(descripcion, salida));
 		}
 		n--;
-		habitaciones[n] = new Room("Room" + n , false);
+		habitaciones[n] = new Room("Room" + n , true);
 		//habitaciones.add(new Room("Room" + n , false));
 		
 		return habitaciones;
