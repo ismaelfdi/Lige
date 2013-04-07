@@ -35,41 +35,9 @@ public class Game {
 		this.habitacionActual = habitacionActual;
 		this.jugador = new Player();
 	}
-/*	
-	public Room getHabitacionActual(){
-		return this.habitacionActual;
-	}
-	
-	public Map getPuertas(){
-		return this.puertas;
-	}
-	
-	public Player getJugador(){
-		return this.jugador;
-	}
-*/	
-	public boolean jugadorTiene(String id){
-		return jugador.tieneEnInventario(id);
-	}
-	
-	public String mostrarPuntuacionJugador(){
-		 return jugador.mostrarPuntuacion();
-	}
-	
+
 	public void mostrarInventarioHabitacion(){
 		UIConsola.printText(habitacionActual.mostrarInventario());
-	}
-	
-	public String mostrarInventarioJugador(){
-		return jugador.mostrarInventario();
-	}
-	
-	public String mostrarItemJugador(String id){
-		return jugador.mostrarItem(id);
-	}
-	
-	public boolean habitacionActualEstaObjeto(String id){
-		return habitacionActual.estaObjeto(id);
 	}
 
 	public void usarObjeto(String id){
@@ -104,20 +72,6 @@ public class Game {
 		}else{
 			UIConsola.showError("El objeto " + id + " no está en esta habitación.");
 		}		
-	}
-	
-	
-	
-	public Item cogerObjetoHabitacion(String id){
-		return habitacionActual.cogerObjeto(id);
-	}
-	
-	public boolean agregaObjetoAJugador(Item item){
-		return jugador.agregaObjeto(item);
-	}
-	
-	public Item obtenerObjetoJugador(String id){
-		return jugador.obtenerObjeto(id);
 	}
 	
 	public Door devolverPuerta(Directions direccion){

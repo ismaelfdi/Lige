@@ -14,7 +14,6 @@ import lige.grupo03.pr2.logica.ObjetoValor;
 import lige.grupo03.pr2.logica.Room;
 
 public class Main {
-	
 	/**
 	Room[] createRooms: Crea un array con las habitaciones de la
 	aventura. La primera habitación será siempre la de partida.
@@ -42,8 +41,7 @@ public class Main {
 
 
 	private static ArrayList<Door> createDoors(Room[] habitaciones){
-		
-		//ArrayList<Room> habitaciones = createRooms(16);
+
 		ArrayList<Door> puertas = new ArrayList<Door>();
 		
 		puertas.add(new Door(habitaciones[0],Directions.NORTE,habitaciones[2], false));
@@ -153,9 +151,6 @@ public class Main {
 			
 	}
 	
-
-
-
 	/* main Principal */
 	public static void main(String[] args) {
 		

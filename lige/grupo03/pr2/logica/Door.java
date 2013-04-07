@@ -3,7 +3,9 @@ import lige.grupo03.pr2.Directions;
 
 /**
  * Clase Door : Representa una puerta que une dos habitaciones.
+ * 
  * @author Ismael Leonidas & Ignacio Lopez
+ * @version 2.0
  */
 public class Door {
 	
@@ -54,14 +56,6 @@ public class Door {
 		this.habitacionDestino = habitacionDestino;
 	}
 	
-	/**
-	Mutador del atributo direccion
-	@param direccion valor que se le asigna a la direccion
-	*/
-	public void setDireccion(Directions direccion){
-		this.direccion = direccion;
-	}
-
 	/**
 	Mutador del atributo openDoor
 	@param openDoor valor que se le asigna a openDoor

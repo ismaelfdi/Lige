@@ -7,42 +7,45 @@ import lige.grupo03.pr2.Directions;
 import lige.grupo03.pr2.VerbCommands;
 
 /**
- * @author IsmaelLeonidas
- *
+ * Clase que representa un Comando IR
+ * 
+ * @author Ismael Ventura & Ignacio Lopez
+ * @version 2.0
  */
 public class ComandoIr extends Comando{
+	
+	/*Atributo que representa una direccion pasada por consola*/
 	private Directions direccion;
+	/*Atributo que representa el juego que esta ejecución*/
 	private Game juego;
-	/*
-	public ComandoIr(VerbCommands verbo, Directions direccion){
-		super(verbo);
-		this.direccion = direccion;
-	}
-	*/
+
+	/**
+	 * Constructor parametrizado del Comando IR
+	 * @param juego Game que representa el juego que esta en ejecución
+	 * @param direccion Directions que representa la dirección
+	 */
 	public ComandoIr(Game juego, Directions direccion){
 		super(VerbCommands.IR);
 		this.direccion = direccion;
 		this.juego = juego;
 	}
 	
-	public VerbCommands getVerbo(){
-		return super.getVerbo();
-	}
-	
-	public Directions getDireccion(){
-		return direccion;
-	}
-	
-	public Game getJuego(){
-		return this.juego;
-	}
-
+	/**
+	 * Indica si un Comando es valido
+	 * 
+	 * @return Booleano verdero o falso segun sea el caso
+	 */
 	@Override
 	public boolean esValido() {
 		return super.esValido() && !(direccion.equals(Directions.DESCONOCIDO));
 	}
-
 	
+	/**
+	 * Procedimiento especifico del Comando IR
+	 * 
+	 * @return Sin valor de retorno
+	 */
+	@Override
 	public void ejecutar() {
 		juego.cambiarHabitacion(direccion);
 	}
